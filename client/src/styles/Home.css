@@ -1,0 +1,39 @@
+/* Container styles for the home page */
+.home {
+    text-align: center;
+    padding: 40px;
+    background-color: var(--todo-bg-color);
+    color: var(--primary-text-color);
+    font-family: var(--primary-font);
+  }
+  
+  /* Heading styles */
+  .home h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color:  white;
+  }
+  
+  /* Paragraph styles */
+  .home p {
+    font-size: 1.2em;
+    color: var(--secondary-text-color);
+    line-height: 1.5;
+    margin-top: 20px;
+  }
+  
+  /* Additional styles for responsive design */
+  @media (max-width: 768px) {
+    .home {
+      padding: 20px;
+    }
+  
+    .home h1 {
+      font-size: 2.5em;
+    }
+  
+    .home p {
+      font-size: 1em;
+    }
+  }
+  

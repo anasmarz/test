@@ -1,8 +1,11 @@
+// src/App.js
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Home from './pages/Home';
 import About from './pages/About';
 import Todo from './components/Todo';
-import { useEffect, useState } from 'react';
+import Secret from './pages/Secret';
 
 export default function App() {
   const [todos, setTodos] = useState([]);
@@ -51,8 +54,10 @@ export default function App() {
     <Router>
       <Navbar />
       <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route
-          path="/"
+          path="/todos"
           element={
             <main className="container">
               <h1 className="title">Todo List</h1>
@@ -78,7 +83,7 @@ export default function App() {
             </main>
           }
         />
-        <Route path="/about" element={<About />} />
+        <Route path="/secret" element={<Secret />} />
       </Routes>
     </Router>
   );

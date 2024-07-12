@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
 
+/* Root variables for the website */
+:root {
+  --primary-bg-color: #f0f8ff; /* Light blue background color */
+  --primary-text-color: #333; /* Dark gray text color */
+  --primary-font: 'Rubik', sans-serif; /* Primary font family */
+  --primary-heading-color: #000; /* Black color for headings */
+  --secondary-text-color: #666; /* Medium gray text color */
+  --main-bg-color: #07000d; /* Main background color */
+  --main-bg-image: url("https://www.transparenttextures.com/patterns/cartographer.png"); /* Main background image */
+  --todo-bg-color: rgba(255, 255, 255, 0.1); /* Todo background color */
+  --todo-bg-hover-color: rgba(255, 255, 255, 0.2); /* Todo hover background color */
+  --button-bg-color: rgba(113, 0, 212, 0.7); /* Button background color */
+  --button-bg-hover-color: rgba(95, 0, 179, 0.5); /* Button hover background color */
+}
+
 /* CSS RESET */
 *,
 *::before,
@@ -45,10 +60,10 @@ h6 {
 /* APP */
 
 body {
-  background-color: #07000d;
-  background-image: url("https://www.transparenttextures.com/patterns/cartographer.png");
+  background-color: var(--main-bg-color);
+  background-image: var(--main-bg-image);
   color: white;
-  font-family: 'Rubik', sans-serif;
+  font-family: var(--primary-font);
 }
 
 /* container */
@@ -77,16 +92,15 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 1rem 1.25rem;
-
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--todo-bg-color);
   width: 50%;
   font-size: 1.4rem;
   border-radius: 1rem;
   transition: all 0.2s;
+}
 
-  &:hover {
-   background-color: rgba(255, 255, 255, 0.2);
-  }
+.todo:hover {
+  background-color: var(--todo-bg-hover-color);
 }
 
 .mutations {
@@ -104,18 +118,19 @@ body {
   background: none;
   color: white;
   font-size: 1.6rem;
+}
 
-  &:hover {
-    transform: scale(1.15);
-  }
+.todo__status:hover,
+.todo__delete:hover {
+  transform: scale(1.15);
 }
 
 .todo__status {
- font-size: 1.75rem;
+  font-size: 1.75rem;
 }
 
-
 /* form */
+
 .form {
   display: flex;
   gap: 0.5rem;
@@ -129,37 +144,37 @@ body {
   border-radius: 0.25rem;
   border: none;
   outline: none;
+}
 
-  &:focus,
-  &:hover {
-   background-color: rgba(255, 255, 255, 0.85);
-  }
+.form__input:focus,
+.form__input:hover {
+  background-color: rgba(255, 255, 255, 0.85);
 }
 
 .form__button {
- border: none;
- background-color: rgba(113, 0, 212, 0.7);
- cursor: pointer;
- color: white;
- border-radius: 0.25rem;
- transition: all 0.2s;
+  border: none;
+  background-color: var(--button-bg-color);
+  cursor: pointer;
+  color: white;
+  border-radius: 0.25rem;
+  transition: all 0.2s;
+}
 
- &:hover {
-   background-color: rgba(95, 0, 179, 0.5) ;
- }
+.form__button:hover {
+  background-color: var(--button-bg-hover-color);
 }
 
 @media (max-width: 420px) {
- .title {
-   font-size: 2.5rem;
- }
+  .title {
+    font-size: 2.5rem;
+  }
 
- .form {
-   width: 95%;
- }
+  .form {
+    width: 95%;
+  }
 
- .todo {
-   width: 95%;
-   font-size: 1.2rem;
- }
+  .todo {
+    width: 95%;
+    font-size: 1.2rem;
+  }
 }
