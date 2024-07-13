@@ -5,6 +5,7 @@ export default function Secret() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [password, setPassword] = useState('');
     const [daysSince, setDaysSince] = useState(0);
+    const [monthsSince, setMonthsSince] = useState(0);
 
     useEffect(() => {
         const coll = document.getElementsByClassName("collapsible");
@@ -20,15 +21,25 @@ export default function Secret() {
             });
         }
 
-        const calculateDaysSince = () => {
+        const calculateTimeSince = () => {
             const startDate = new Date('2023-05-02');
             const currentDate = new Date();
             const timeDifference = currentDate - startDate;
+
+            // Calculate days
             const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
             setDaysSince(daysDifference);
+
+            // Calculate months
+            let monthsDifference = (currentDate.getFullYear() - startDate.getFullYear()) * 12;
+            monthsDifference += currentDate.getMonth() - startDate.getMonth();
+            if (currentDate.getDate() < startDate.getDate()) {
+                monthsDifference--;
+            }
+            setMonthsSince(monthsDifference);
         };
 
-        calculateDaysSince();
+        calculateTimeSince();
     }, [isAuthenticated]);
 
     const handleSubmit = (e) => {
@@ -45,7 +56,7 @@ export default function Secret() {
             {isAuthenticated ? (
                 <div>
                     <h1 className="title">Welcome to the Secret Page!</h1>
-                    <p class = "pcounter" >{daysSince} days with you</p>
+                    <p class = "pcounter" >{daysSince} days with you <br></br> {monthsSince} months with you</p>
                     <p>Written for qya:</p>
                     <button className="collapsible">1</button>
                     <div className="content">

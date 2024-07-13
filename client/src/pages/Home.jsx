@@ -5,6 +5,12 @@ export default function Home() {
     <div className="home">
       <h1>Welcome to the Home Page</h1>
       <p>Haziq is the gayest man alive</p>
+
+      <div>
+        <p>This is a website dedicated for her</p>
+      </div>
+
+
     </div>
   );
 }

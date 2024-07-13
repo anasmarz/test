@@ -2,7 +2,8 @@
 .home {
     text-align: center;
     padding: 40px;
-    background-color: var(--todo-bg-color);
+    background-color: var(--main-bg-color);
+    background-image: var(--main-bg-image);
     color: var(--primary-text-color);
     font-family: var(--primary-font);
   }
@@ -17,7 +18,7 @@
   /* Paragraph styles */
   .home p {
     font-size: 1.2em;
-    color: var(--secondary-text-color);
+    color: whitesmoke;
     line-height: 1.5;
     margin-top: 20px;
   }
